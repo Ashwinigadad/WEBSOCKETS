@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websockets</title>
+</head>
+<body>
+    <script>
+        var sock = new WebSocket("wss://echo.websocket.org");
+        sock.onopen=function(event){
+            alert("socket connected succesfully");
+            setTimeout(function(){
+                sock.send("Hey there!!");
+            },1000);
+
+        }
+        sock.onmessage=function(event){
+            console.log(event);
+        }
+    </script>
+    
+</body>
+</html>

@@ -6,10 +6,11 @@
     <title>Websockets</title>
 </head>
 <body>
+    <button>hello</button>
     <script>
-        var sock = new WebSocket("wss://echo.websocket.org");
+        var sock = new WebSocket("ws://localhost:5001");
         sock.onopen=function(event){
-            alert("socket connected succesfully");
+            //alert("socket connected succesfully");
             setTimeout(function(){
                 sock.send("Hey there!!");
             },1000);
@@ -17,6 +18,9 @@
         }
         sock.onmessage=function(event){
             console.log(event);
+        }
+        document.querySelector('button').onclick=()=>{
+            sock.send("hello!");
         }
     </script>
     
